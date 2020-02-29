@@ -1,0 +1,27 @@
+<p><strong>Welcome to OAM Training</strong></p>
+<p>This project provides a minimal codebase to practice.</p>
+<p>The project provides support for:</p>
+<ul>
+<li>In memory H2 database</li>
+<li>Flyway service (disabled)</li>
+<li>Spring Boot 2</li>
+</ul>
+<p><strong>Steps For Intellij</strong></p>
+<ol>
+<li>VCS-&gt;Checkour from Version Control-&gt;Git</li>
+<li>Paste&nbsp;<a href="https://github.com/ecaglar/OAMTraining.git ">https://github.com/ecaglar/OAMTraining.git</a></li>
+<li>Click Clone</li>
+<li>Open project with IntelliJ</li>
+<li>Run-&gt;Run "Oam Application"</li>
+<li>You should see a message in console smiler to<br />
+<table width="590">
+<tbody>
+<tr>
+<td>com.zipwhip.oam.OamApplication : Started OamApplication in 1.633 seconds</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>Send a GET request from your favorite tool<br /><em>GET&nbsp;<a href="http://localhost:8080/welcome/zipwhip">http://localhost:8080/welcome/zipwhip</a><br /></em></li>
+<li><em>You should get the response: "Hello zipwhip. Welcome to OAM training"</em></li>
+</ol>
