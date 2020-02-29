@@ -1,5 +1,5 @@
 ![](https://cdn-assets-cloud.frontify.com/local/frontify/eyJwYXRoIjoiXC9wdWJsaWNcL3VwbG9hZFwvc2NyZWVuc1wvMTMxNjk1XC82ZGVkYzUxYTkzNTFhYTgxNzQ2Njc1MGM2ZTE1ZTIzZC0xNTU2MDgzNTI3LnBuZyJ9:frontify:h5TnT6t9uHv2SangvR22WrpdnwodSyqfLsZWc9DDJL0?width=2400)
-<p><strong>Welcome to Onboarding & Account Management Training</strong></p>
+<p><strong>Welcome to Onboarding & Account Management Spring Training</strong></p>
 <p>This project provides a minimal codebase to practice.</p>
 <p>The project provides support for:</p>
 <ul>
