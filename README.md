@@ -23,6 +23,6 @@
 </tbody>
 </table>
 </li>
-<li>Send a GET request from your favorite tool<br /><em>GET&nbsp;<a href="http://localhost:8080/welcome/zipwhip">http://localhost:8080/welcome/zipwhip</a><br /></em></li>
-<li><em>You should get the response: "Hello zipwhip. Welcome to OAM training"</em></li>
+<li>Send a POST request from your favorite tool<br /><em>GET&nbsp;<a href="http://localhost:8080/welcome/zipwhip">http://localhost:8080/users/register with body with username,firstname,lastname and email</a><br /></em></li>
+<li><em>You should get your user as response </em></li>
 </ol>
