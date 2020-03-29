@@ -1,4 +1,4 @@
-package com.zipwhip.oam.repository;
+package com.zipwhip.oam.api.repository;
 
 import com.zipwhip.oam.model.User;
 import com.zipwhip.oam.model.IUserStorage;

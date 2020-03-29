@@ -1,4 +1,4 @@
-package com.zipwhip.oam.repository;
+package com.zipwhip.oam.api.repository;
 
 import org.springframework.stereotype.Repository;
 

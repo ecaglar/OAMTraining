@@ -1,10 +1,8 @@
-package com.zipwhip.oam.controller;
+package com.zipwhip.oam.api.controller;
 
-import com.zipwhip.oam.service.EchoService;
+import com.zipwhip.oam.api.service.EchoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.lang.reflect.Member;
 
 
 @RestController

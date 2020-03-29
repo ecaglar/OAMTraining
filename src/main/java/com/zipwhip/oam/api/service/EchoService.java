@@ -1,6 +1,6 @@
-package com.zipwhip.oam.service;
+package com.zipwhip.oam.api.service;
 
-import com.zipwhip.oam.repository.EchoRepository;
+import com.zipwhip.oam.api.repository.EchoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
