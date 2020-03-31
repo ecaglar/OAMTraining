@@ -24,6 +24,6 @@ public class UserService {
 
 
     public String getUsers(){
-        return userRepository.getUsers() + ". API Check";
+        return userRepository.getUsers() + "";
     }
 }

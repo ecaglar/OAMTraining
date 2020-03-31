@@ -12,10 +12,10 @@ public class CurrentFeedService {
     private CurrentFeedRepository currentFeedRepository;
 
     public String getCurrentTwitfeed(final String name){
-        return currentFeedRepository.getCurrentTwitfeed(name) + ". API Verified";
+        return currentFeedRepository.getCurrentTwitfeed() + "";
     }
 
     public String userSpecificFeed(final String name){
-        return currentFeedRepository.userSpecificFeed(name) + ". API Verified";
+        return currentFeedRepository.userSpecificFeed(name) + "";
     }
 }
