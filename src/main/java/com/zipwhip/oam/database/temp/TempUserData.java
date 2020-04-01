@@ -24,13 +24,44 @@ public class TempUserData {
         this.messages = messages;
     }
 
+    public void addUser(HashMap<String, String> userPassed) {
+        int counter = 0;
+        while(this.users.containsKey(counter)) {
+            counter++;
+        }
+        users.put(counter, userPassed);
+    }
+
+    public void addMessage(HashMap<String, String> messagePassed) {
+        int counter = 0;
+        while(this.messages.containsKey(counter)) {
+            counter++;
+        }
+        messages.put(counter, messagePassed);
+    }
+
+    /**
+     * keep in mind could be either email or username passed so we'll need to check both
+     * @param userPassed
+     */
+    public void deleteUser(String userPassed) {
+        int counter = 0;
+        while(users.containsKey(counter)) {
+            if(users.get(counter).get("username").toLowerCase().equals(userPassed.toLowerCase())
+                || users.get(counter).get("email").toLowerCase().equals(userPassed.toLowerCase())) {
+                users.remove(counter);
+                //TODO come up with method to adjust and fix rest of  hashmap list
+            }
+        }
+    }
+
     private void createTestUsers() {
         HashMap<String, String> tempUser = new HashMap<String, String>();
         tempUser.put("username", "DoomGuy");
         tempUser.put("email", "DoomGuy@gmail.com");
         tempUser.put("password", "abc123");
-        tempUser.put("numberOfFollowers", "1");
-        tempUser.put("followers", "Paradox");
+        tempUser.put("numberOfFollowers", "3");
+        tempUser.put("followers", "Paradox, bob, dillan");
         tempUser.put("numberOfFollows", "0");
         tempUser.put("follows", "");
 

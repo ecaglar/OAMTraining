@@ -13,6 +13,13 @@ public class CurrentFeedRepository {
         return tempUserData.getTestMessages();
     }
 
+    /**
+     * The method below "userSpecificFeed" does the following
+     * We get all messages then compare their username against the name param passed
+     * If we get a match we add that user's message data to our hashmap to be returned
+     * @param name
+     * @return specificUsers <- Hashmap<integer, hashmap<string, string>>
+     */
     public HashMap<Integer, HashMap<String, String>> userSpecificFeed(final String name){
         TempUserData tempUserData = new TempUserData();
         HashMap<Integer, HashMap<String, String>> specificUsers = new HashMap<Integer, HashMap<String, String>>();
@@ -24,7 +31,6 @@ public class CurrentFeedRepository {
             if(allUsers.get(counter).get("username").toLowerCase().equals(name.toLowerCase())) {
                 specificUsers.put(keyCounter, allUsers.get(counter));
             }
-
             counter++;
             keyCounter++;
         }
