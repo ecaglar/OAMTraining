@@ -3,41 +3,42 @@ package com.zipwhip.oam.database.temp;
 import java.util.HashMap;
 
 public class TempUserData {
-    private HashMap<Integer, HashMap<String, String>> users = new HashMap<Integer, HashMap<String, String>>();
-    private HashMap<Integer, HashMap<String, String>> messages = new HashMap<Integer, HashMap<String, String>>();
+    private static HashMap<Integer, HashMap<String, Object>> users = new HashMap<Integer, HashMap<String, Object>>();
+    private static HashMap<Integer, HashMap<String, String>> messages = new HashMap<Integer, HashMap<String, String>>();
 
-    public HashMap<Integer, HashMap<String, String>> getTestUsers() {
-        createTestUsers();
-        return users;
+    public HashMap<Integer, HashMap<String, Object>> getTestUsers() {
+        return this.users;
     }
 
     public HashMap<Integer, HashMap<String, String>> getTestMessages() {
-        createTestMessages();
         return messages;
     }
 
-    public void setTestUsers(HashMap<Integer, HashMap<String, String>> users) {
-        this.users = users;
-    }
-
-    public void setTestMessages(HashMap<Integer, HashMap<String, String>> messages) {
-        this.messages = messages;
-    }
-
-    public void addUser(HashMap<String, String> userPassed) {
+    public void setTestUsers(HashMap<String, Object> newUserData) {
+        boolean match = false;
         int counter = 0;
-        while(this.users.containsKey(counter)) {
+        while(this.messages.containsKey(counter)) {
+            if(users.get(counter).get("username").equals(newUserData.get("username")) ||
+                    users.get(counter).get("email").equals(newUserData.get("email"))){
+                match = true;
+                break;
+            }
             counter++;
         }
-        users.put(counter, userPassed);
+        if(match == false){
+            this.users.put(counter, newUserData);
+        }
+        else {
+            //do nothing
+        }
     }
 
-    public void addMessage(HashMap<String, String> messagePassed) {
+    public void setTestMessages(HashMap<String, String> newMessage) {
         int counter = 0;
         while(this.messages.containsKey(counter)) {
             counter++;
         }
-        messages.put(counter, messagePassed);
+        this.messages.put(counter, newMessage);
     }
 
     /**
@@ -47,39 +48,47 @@ public class TempUserData {
     public void deleteUser(String userPassed) {
         int counter = 0;
         while(users.containsKey(counter)) {
-            if(users.get(counter).get("username").toLowerCase().equals(userPassed.toLowerCase())
-                || users.get(counter).get("email").toLowerCase().equals(userPassed.toLowerCase())) {
+            if(users.get(counter).get("username").toString().toLowerCase().equals(userPassed.toLowerCase())
+                || users.get(counter).get("email").toString().toLowerCase().equals(userPassed.toLowerCase())) {
                 users.remove(counter);
                 //TODO come up with method to adjust and fix rest of  hashmap list
             }
         }
     }
 
-    private void createTestUsers() {
-        HashMap<String, String> tempUser = new HashMap<String, String>();
+    public void createTestUsers() {
+        System.out.println("Create test users");
+        HashMap<String, Object> tempUser = new HashMap<String, Object>();
+        String[] tempFollowers = {"Paradox", "bob", "dillan"};
+        String[] tempFollows = {""};
         tempUser.put("username", "DoomGuy");
         tempUser.put("email", "DoomGuy@gmail.com");
         tempUser.put("password", "abc123");
-        tempUser.put("numberOfFollowers", "3");
-        tempUser.put("followers", "Paradox, bob, dillan");
-        tempUser.put("numberOfFollows", "0");
-        tempUser.put("follows", "");
+        tempUser.put("numberOfFollowers", 3);
+        tempUser.put("followers", tempFollowers);
+        tempUser.put("numberOfFollows", 0);
+        tempUser.put("follows", tempFollows);
 
-        users.put(0, tempUser);
+        this.users.put(0, tempUser);
 
-        HashMap<String, String> tempUserTwo = new HashMap<String, String>();
+        String[] tempFollowers2 = {""};
+        String[] tempFollows2 = {"DoomGuy"};
+        HashMap<String, Object> tempUserTwo = new HashMap<String, Object>();
         tempUserTwo.put("username", "Paradox");
         tempUserTwo.put("email", "Paradox@gmail.com");
         tempUserTwo.put("password", "1111");
-        tempUserTwo.put("numberOfFollowers", "0");
-        tempUserTwo.put("followers", "");
-        tempUserTwo.put("numberOfFollows", "1");
-        tempUserTwo.put("follows", "DoomGuy");
+        tempUserTwo.put("numberOfFollowers", 0);
+        tempUserTwo.put("followers", tempFollowers2);
+        tempUserTwo.put("numberOfFollows", 1);
+        tempUserTwo.put("follows", tempFollows2);
 
-        users.put(1, tempUserTwo);
+        this.users.put(1, tempUserTwo);
+
+        System.out.println("users created: " + users);
     }
 
-    private void createTestMessages() {
+    public void createTestMessages() {
+        System.out.println("Create test messages");
         HashMap<String, String> tempDate = new HashMap<String, String>();
         tempDate.put("username", "DoomGuy");
         tempDate.put("messageContents", "Rip and Tear! Message 1");

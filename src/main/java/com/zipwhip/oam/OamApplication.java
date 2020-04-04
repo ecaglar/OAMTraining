@@ -1,5 +1,6 @@
 package com.zipwhip.oam;
 
+import com.zipwhip.oam.database.temp.TempUserData;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -9,6 +10,9 @@ public class OamApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(OamApplication.class, args);
+		TempUserData tempUserData = new TempUserData();
+		tempUserData.createTestUsers();
+		tempUserData.createTestMessages();
 	}
 
 }

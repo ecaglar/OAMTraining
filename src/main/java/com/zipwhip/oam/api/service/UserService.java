@@ -6,6 +6,8 @@ import com.zipwhip.oam.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+
 @Service
 public class UserService {
 
@@ -25,5 +27,13 @@ public class UserService {
 
     public String getUsers(){
         return userRepository.getUsers() + "";
+    }
+
+    public String createUsers(HashMap<String, Object> newUserData){
+        return userRepository.createUsers(newUserData) + "";
+    }
+
+    public Boolean loginUser(HashMap<String, Object> userData){
+        return userRepository.loginUser(userData);
     }
 }

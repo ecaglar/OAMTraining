@@ -1,0 +1,125 @@
+
+
+@gray70: darken(#ff0000, 70%);
+@gray60: darken(#ffffff, 60%);
+@gray50: darken(#ffffff, 50%);
+@gray30: darken(#ff0000, 30%);
+@gray0: darken(#ffffff, 5%);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: arial;
+    color: @gray60;
+}
+.link{
+    cur sor: pointer;
+}body {
+    background: #ffffff;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    .container {
+        width: 400px;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.5);
+        margin: 50px auto;
+        padding-top: 10px;
+        padding-bottom: 30px;
+        position: relative;
+
+        -webkit-transition: transform 0.5s ease;
+        transition:         transform 0.5s ease;
+
+        -webkit-animation: page-down 1s; /* Safari 4+ */
+        -moz-animation:    page-down 1s; /* Fx 5+ */
+        -o-animation:      page-down 1s; /* Opera 12+ */
+        animation:         page-down 1s; /* IE 10+, Fx 29+ */
+
+        &:hover{
+            //-webkit-transform:  scale(1.008);
+            //transform:          scale(1.008);
+        }
+
+        &.close{
+            display: none;
+        }
+
+        h1 {
+            font-family: "Vibur";
+            font-size: 50px;
+            text-align: center;
+            margin: 25px 0;
+            color: @gray70;
+        }
+        .close-button{
+            position: absolute;
+            top:5px;
+            right:5px;
+
+            i{
+                color:@gray70;
+                padding: 10px;
+            }
+        }
+        .form {
+            &-set {
+                padding: 25px;
+                max-width: 320px;
+                margin: auto;
+                .form {
+                    &-group {
+                        position: relative;
+                        margin-bottom: 15px;
+                        border-bottom: 1px solid @gray30;
+                        .form {
+                            &-label {
+                                position: absolute;
+                                -webkit-transition: 0.15s all ease;
+                                transition:         0.15s all ease;
+
+                                &.on-focus, &.filled{
+                                    font-size: 10px;
+                                    top:-10px;
+                                    -webkit-transition: 0.15s all ease;
+                                    transition:         0.15s all ease;
+                                }
+
+                            }
+                            &-control {
+                                height: 25px;
+                                padding: 5px;
+                                position: relative;
+                                z-index: 2;
+                                border: none;
+                                background-color: transparent;
+                                width: 100%;
+
+                                &:focus {
+                                    outline: -webkit-focus-ring-color auto 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+                .btn {
+                    width: 100%;
+                    height: 40px;
+                    border: 1px solid @gray50;
+                    border-radius: 30px;
+                    background-color: transparent;
+                    font-size: 16px;
+                    margin: 15px 0;
+                    cursor: pointer;
+                    &:focus {
+                        outline: -webkit-focus-ring-color auto 0px;
+                    }
+                }
+            }
+        }
+    }
+}
+

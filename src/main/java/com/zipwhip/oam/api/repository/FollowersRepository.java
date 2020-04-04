@@ -24,20 +24,20 @@ public class FollowersRepository {
      * @return followers <- List<String>
      */
     public List<String> getFollowers(final String user){
-        HashMap<Integer, HashMap<String, String>> allUsers = tempUserData.getTestUsers();
+        HashMap<Integer, HashMap<String, Object>> allUsers = tempUserData.getTestUsers();
         List<String> followers = new ArrayList<>();
 
         int counter = 0;
         while(allUsers.containsKey(counter)) {
-            if(allUsers.get(counter).get("username").toLowerCase().equals(user.toLowerCase())) {
+            if(allUsers.get(counter).get("username").toString().toLowerCase().equals(user.toLowerCase())) {
                 System.out.println("user data: " + allUsers.get(counter));
                 if(allUsers.get(counter).get("numberOfFollowers") == null || allUsers.get(counter).get("numberOfFollowers").equals("")) {
                     followers.add("");
                     break;
                 }
-                int followersCount = Integer.parseInt(allUsers.get(counter).get("numberOfFollowers"));
+                int followersCount = Integer.parseInt(allUsers.get(counter).get("numberOfFollowers").toString());
                 if(followersCount > 0) {
-                    followers = Arrays.asList(allUsers.get(counter).get("followers").split(", "));
+                    followers = Arrays.asList(allUsers.get(counter).get("followers").toString().split(", "));
                 }
                 else {
                     followers.add("");
