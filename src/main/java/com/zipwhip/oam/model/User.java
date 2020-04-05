@@ -1,59 +1,74 @@
 package com.zipwhip.oam.model;
 
-import java.util.Objects;
+import org.springframework.data.relational.core.sql.In;
+
+import java.time.LocalDateTime;
 
 public class User {
 
+    private final Integer id;
     private String username;
     private String firstname;
     private String lastname;
     private String email;
+    private final LocalDateTime dateCreated;
+    private LocalDateTime dateDeleted;
 
-    public User() { }
-
-    public User(String username, String firstname, String lastname, String email) {
+    public User(final Integer id, String username, String firstname, String lastname, String email) {
+        this.id = id;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
+        this.dateCreated = LocalDateTime.now();
+        this.dateDeleted = null;
     }
+
+    public Integer getId() {
+        return id;
+    }
+    
     public String getUsername() {
         return username;
     }
-    public void setUsername(String username) {
+
+    public void setUsername(final String username) {
         this.username = username;
     }
+
     public String getFirstname() {
         return firstname;
     }
-    public void setFirstname(String firstname) {
+
+    public void setFirstname(final String firstname) {
         this.firstname = firstname;
     }
+
     public String getLastname() {
         return lastname;
     }
-    public void setLastname(String lastname) {
+
+    public void setLastname(final String lastname) {
         this.lastname = lastname;
     }
+
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
+
+    public void setEmail(final String email) {
         this.email = email;
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        User user = (User) o;
-        return username.equals(user.username) && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && email.equals(user.email);
+
+    public LocalDateTime getDateCreated() {
+        return dateCreated;
     }
-    @Override
-    public int hashCode() {
-        return Objects.hash(username, firstname, lastname, email);
+
+    public LocalDateTime getDateDeleted() {
+        return dateDeleted;
+    }
+
+    public void setDateDeleted(final LocalDateTime dateDeleted) {
+        this.dateDeleted = dateDeleted;
     }
 }
