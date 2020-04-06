@@ -1,22 +1,22 @@
 package com.zipwhip.oam.model;
 
-import org.springframework.data.relational.core.sql.In;
-
 import java.time.LocalDateTime;
 
 public class User {
-
     private final Integer id;
     private String username;
+    private String password;
     private String firstname;
+
     private String lastname;
     private String email;
     private final LocalDateTime dateCreated;
     private LocalDateTime dateDeleted;
 
-    public User(final Integer id, String username, String firstname, String lastname, String email) {
+    public User(final Integer id, final String username, final String password, final String firstname, final String lastname, final String email) {
         this.id = id;
         this.username = username;
+        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -27,7 +27,7 @@ public class User {
     public Integer getId() {
         return id;
     }
-    
+
     public String getUsername() {
         return username;
     }
@@ -70,5 +70,13 @@ public class User {
 
     public void setDateDeleted(final LocalDateTime dateDeleted) {
         this.dateDeleted = dateDeleted;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
     }
 }

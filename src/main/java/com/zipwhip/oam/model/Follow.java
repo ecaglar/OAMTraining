@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 
 public class Follow {
     private final Integer id;
-    private final Integer followerId;
+    private final Integer followedId;
     private final Integer followingId;
     private final LocalDateTime dateCreated;
     private LocalDateTime dateDeleted;
 
-    public Follow (final Integer id, final Integer followerId, final Integer followingId) {
+    public Follow (final Integer id, final Integer followedId, final Integer followingId) {
         this.id = id;
-        this.followerId = followerId;
+        this.followedId = followedId;
         this.followingId = followingId;
         this.dateCreated = LocalDateTime.now();
         this.dateDeleted = null;
@@ -21,8 +21,8 @@ public class Follow {
         return id;
     }
 
-    public Integer getFollowerId() {
-        return followerId;
+    public Integer getFollowedId() {
+        return followedId;
     }
 
     public Integer getFollowingId() {
