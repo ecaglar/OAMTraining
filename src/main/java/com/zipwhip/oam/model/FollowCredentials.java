@@ -1,16 +1,16 @@
 package com.zipwhip.oam.model;
 
 public class FollowCredentials {
-    private final Integer followingUserId;
+    private final Integer followerUserId;
     private final Integer followedUserId;
 
-    public FollowCredentials (final Integer followingUserId, final Integer followedUserId){
-        this.followingUserId = followingUserId;
+    public FollowCredentials (final Integer followerUserId, final Integer followedUserId){
+        this.followerUserId = followerUserId;
         this.followedUserId = followedUserId;
     }
 
-    public Integer getFollowingUserId() {
-        return followingUserId;
+    public Integer getFollowerUserId() {
+        return followerUserId;
     }
 
     public Integer getFollowedUserId() {

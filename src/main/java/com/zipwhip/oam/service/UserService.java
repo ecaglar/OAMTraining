@@ -5,7 +5,6 @@ import com.zipwhip.oam.model.IUserStorage;
 import com.zipwhip.oam.model.User;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,6 +18,9 @@ public class UserService {
 
     public User loginUser(final String username, final String password) throws Exception {
         return userStorage.loginToUser(username, password);
+    }
+
+    public void logoutUser() {
     }
 
     public List<User> getUserList(){

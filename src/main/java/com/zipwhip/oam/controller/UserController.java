@@ -7,6 +7,7 @@ import com.zipwhip.oam.model.User;
 import com.zipwhip.oam.model.UserCreateInput;
 import com.zipwhip.oam.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,13 +31,18 @@ public class UserController {
         return userService.loginUser(loginCredentials.getUsername(), loginCredentials.getPassword());
     }
 
-    @GetMapping({"/list"})
+    @GetMapping({"/logout"})
+    public void logoutUser() throws Exception {
+        userService.logoutUser();
+    }
+
+    @GetMapping({"/"})
     public List<User> getUserList(){
         return userService.getUserList();
     }
 
-    @GetMapping({"/following"})
-    public List<User> getFollowingList(@RequestParam final Integer followerId) throws Exception {
+    @GetMapping({"/{id}"})
+    public List<User> getFollowingList(@PathVariable("id") final Integer followerId) throws Exception {
         return userService.getFollowingList(followerId);
     }
 
@@ -47,11 +53,11 @@ public class UserController {
 
     @PostMapping({"/follow"})
     public Follow followUser(@RequestBody final FollowCredentials followCredentials){
-        return userService.followUser(followCredentials.getFollowingUserId(), followCredentials.getFollowedUserId());
+        return userService.followUser(followCredentials.getFollowerUserId(), followCredentials.getFollowedUserId());
     }
 
     @PostMapping({"/unfollow"})
-    public void unfollowUser(@RequestBody final Integer followingUserId, final Integer followedUserId){
+    public void unfollowUser(@RequestBody final FollowCredentials followCredentials){
         userService.unfollowUser();
     }
 }
